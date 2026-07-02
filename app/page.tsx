@@ -1,7 +1,9 @@
 export default function Home() {
   return (
     <div>
-      <h1>Welcome Next Salon</h1>
+      <h1 className="font-bold text-3xl text-center py-4">
+        Welcome Next Salon
+      </h1>
     </div>
   );
 }
