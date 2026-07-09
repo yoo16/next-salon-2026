@@ -1,7 +1,9 @@
+import Link from "next/link";
+
 export default function Header() {
   return (
     <div>
-      ここはヘッダーです
+      <Link href="/">Next Salon</Link>
     </div>
   )
 }
