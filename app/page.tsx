@@ -15,7 +15,7 @@ export default function Home() {
         title="今日の気分から選べるサロン"
         description="エリアやメニューから、あなたにぴったりのサロンを見つけましょう。"
       />
-      <div className="grid md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3">
         {shops.map((shop) => (
           <ShopCard key={shop.id} shop={shop} />
         ))}
