@@ -8,7 +8,7 @@ export type Shop = {
   description: string
   address: string
   phone: string
-  instagramUrl?: string
+  instagramUrl: string
   coverImage: string
   businessHours: string[]
   leadMessage: string
