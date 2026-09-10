@@ -4,6 +4,8 @@ import ShopCard from "@/components/ShopCard"
 // モックデータのインポート
 // import { MOCK_SHOPS } from "@/data/MockData";
 import { getShops } from "@/lib/services/shops";
+// 使えません
+// import { useEffect } from "react";
 
 // このコンポーネントは非同期通信を行う
 export default async function Home() {
@@ -11,6 +13,10 @@ export default async function Home() {
   // const shops = MOCK_SHOPS;
   // API 経由なので非同期通信じゃないとデータを取得できない
   const shops = await getShops()
+  // ServerComponent では使えません
+  // useEffect(() => {
+  //   console.log(shops);
+  // }, [shops]);
 
   return (
     <div>
