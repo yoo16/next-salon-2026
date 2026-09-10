@@ -1,4 +1,5 @@
 import { MOCK_SHOPS } from "@/data/MockData";
+import { NextResponse } from "next/server";
 
 // GETリクエスト（非同期通信）
 export async function GET() {
@@ -6,4 +7,5 @@ export async function GET() {
     const shops = MOCK_SHOPS
 
     // JSONでレスポンス
+    return NextResponse.json({ shops })
 }
