@@ -11,8 +11,10 @@ export async function getShops(): Promise<Shop[]> {
 }
 
 // 店舗詳細取得
-export async function getShop(id: string): Promise<Shop> {
+export async function getShop(id: string): Promise<Shop | null> {
   const res = await fetch(`${BASE_URL}/api/shops/${id}`, { cache: "no-store" })
+  if (res.status === 404) return null;
+
   const data: { shop: Shop } = await res.json()
   return data.shop
 }
