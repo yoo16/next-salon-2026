@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation"
 import { getShop } from '@/lib/services/shops';
 
 type Props = {
@@ -7,6 +8,8 @@ type Props = {
 export default async function ShopDetailPage({ params }: Props) {
     const { id } = await params
     const shop = await getShop(id)
+
+    if (!shop) notFound()
 
     return (
         <div>
