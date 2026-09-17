@@ -11,7 +11,7 @@ export default async function ShopDetailPage({ params }: Props) {
     return (
         <div>
             <h1>Shop Details</h1>
-            <p>{shop.name}</p>
+            <p>{shop?.name}</p>
         </div>
     )
 }
