@@ -10,5 +10,10 @@ export async function GET(_request: Request, { params }: Params) {
     // 指定されたIDのショップを取得
     const shop = MOCK_SHOPS.find((s) => s.id === id)
 
+    // ショップが存在しない場合は404エラーを返す
+    if (!shop) {
+        return NextResponse.json({ error: "not found" }, { status: 404 })
+    }
+
     return NextResponse.json({ shop })
 }
