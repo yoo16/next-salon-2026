@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
-import { getShop } from '@/lib/services/shops';
+import { getShop, getMenus } from '@/lib/services/shops';
 import ShopHero from "@/components/ShopHero"
+import ShopMenuList from "@/components/ShopMenuList";
 
 type Props = {
     params: Promise<{ id: string }>
@@ -12,9 +13,14 @@ export default async function ShopDetailPage({ params }: Props) {
 
     if (!shop) notFound()
 
+    const menus = await getMenus(id)
+
     return (
         <div>
             <ShopHero shop={shop} />
+            <section>
+                <ShopMenuList menus={menus} />
+            </section>
         </div>
     )
 }
