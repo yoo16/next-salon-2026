@@ -14,8 +14,13 @@ export default async function ShopDetailPage({ params }: Props) {
 
     if (!shop) notFound()
 
-    const menus = await getMenus(id)
-    const staffs = await getStaffs(id)
+    // const menus = await getMenus(id)
+    // const staffs = await getStaffs(id)
+    // 並列でメニューとスタッフ情報を取得するように変更
+    const [menus, staffs] = await Promise.all([
+        getMenus(id),
+        getStaffs(id),
+    ])
 
     return (
         <div>
