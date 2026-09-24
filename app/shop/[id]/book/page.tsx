@@ -1,4 +1,7 @@
+// "use client"
+
 import SectionHeading from '@/components/SectionHeading';
+// import { useState } from 'react'
 
 export default function BookingPage() {
     return (
