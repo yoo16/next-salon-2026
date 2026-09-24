@@ -1,8 +1,8 @@
 // "use client"
-
 import SectionHeading from '@/components/SectionHeading';
 import { getShop } from '@/lib/services/shops';
 import { notFound } from 'next/navigation';
+// useState を使えるようにする場合は、"use client" を有効にする必要があります。
 // import { useState } from 'react'
 
 type BookingPageProps = {
