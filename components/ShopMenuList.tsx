@@ -1,6 +1,10 @@
 import type { Menu } from "@/types/menu"
 
-export default function ShopMenuList({ menus }: { menus: Menu[] }) {
+type ShopMenuListProps = {
+  menus: Menu[]
+}
+
+export default function ShopMenuList({ menus }: ShopMenuListProps) {
   if (menus.length === 0) {
     return <p className="text-sm text-slate-500">メニューは準備中です。</p>
   }
