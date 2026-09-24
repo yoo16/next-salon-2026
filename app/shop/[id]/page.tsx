@@ -25,10 +25,10 @@ export default async function ShopDetailPage({ params }: Props) {
     return (
         <div>
             <ShopHero shop={shop} />
-            <section>
+            <section className="mt-12 grid gap-12 lg:grid-cols-2">
                 <ShopMenuList menus={menus} />
                 <ShopStaffList staffs={staffs} />
             </section>
-        </div>
+        </div >
     )
 }
