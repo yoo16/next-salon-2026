@@ -29,6 +29,6 @@ export default async function ShopDetailPage({ params }: Props) {
                 <ShopMenuList menus={menus} />
                 <ShopStaffList staffs={staffs} />
             </section>
-        </div >
+        </div>
     )
 }
