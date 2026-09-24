@@ -1,15 +1,25 @@
 // "use client"
 
 import SectionHeading from '@/components/SectionHeading';
+import { getShop } from '@/lib/services/shops';
+import { notFound } from 'next/navigation';
 // import { useState } from 'react'
 
-export default function BookingPage() {
+type BookingPageProps = {
+    params: Promise<{ id: string }>;
+};
+
+export default async function BookingPage({ params }: BookingPageProps) {
+    const { id } = await params;
+    const shop = await getShop(id)
+    if (!shop) notFound()
+
     return (
         <div>
             <SectionHeading
                 eyebrow="Booking"
-                title="予約"
-                description="メニュー・スタッフ・日時を選んで予約します。"
+                title={`${shop.name} の予約`}
+            description="メニュー・スタッフ・日時を選んで予約します。"
             />
         </div>
     )
