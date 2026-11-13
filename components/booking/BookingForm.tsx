@@ -28,6 +28,12 @@ export default function BookingForm({ shop, menus, staffs, candidateDates, timeS
 }
 
 type BookingFlowProps = Omit<BookingFormProps, "shop">
+// type BookingFlowProps = {
+//   menus: Menu[]
+//   staffs: Staff[]
+//   candidateDates: string[]
+//   timeSlots: string[]
+// }
 
 function BookingFlow({ menus, staffs, candidateDates, timeSlots }: BookingFlowProps) {
   // useContext を使って BookingContext の状態 state と dispatch を取得
