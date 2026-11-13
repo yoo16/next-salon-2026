@@ -21,7 +21,6 @@ type BookingFormProps = {
 export default function BookingForm({ shop, menus, staffs, candidateDates, timeSlots }: BookingFormProps) {
   return (
     <BookingProvider shopId={shop.id}>
-      {/* ここにかかれたコンポーネントのみが、データを利用できます。 */}
       <BookingFlow />
     </BookingProvider>
   )
