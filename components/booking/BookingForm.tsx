@@ -28,6 +28,7 @@ export default function BookingForm({ shop, menus, staffs, candidateDates, timeS
 }
 
 type BookingFlowProps = Omit<BookingFormProps, "shop">
+// type BookingFlowProps = Pick<BookingFormProps, "menus" | "staffs" | "candidateDates" | "timeSlots">
 // type BookingFlowProps = {
 //   menus: Menu[]
 //   staffs: Staff[]
