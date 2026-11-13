@@ -8,6 +8,7 @@ import { Staff } from "@/types/staff";
 // BookingContextインポート
 import { BookingProvider, TOTAL_STEPS, canGoNext, useBooking } from "@/contexts/BookingContext";
 import BookingNavigation from "@/components/booking/BookingNavigation"
+import MenuStep from "./MenuStep";
 
 // Props の型定義
 type BookingFormProps = {
@@ -21,18 +22,27 @@ type BookingFormProps = {
 export default function BookingForm({ shop, menus, staffs, candidateDates, timeSlots }: BookingFormProps) {
   return (
     <BookingProvider shopId={shop.id}>
-      <BookingFlow />
+      <BookingFlow menus={menus} staffs={staffs} candidateDates={candidateDates} timeSlots={timeSlots} />
     </BookingProvider>
   )
 }
 
-function BookingFlow() {
+type BookingFlowProps = Omit<BookingFormProps, "shop">
+
+function BookingFlow({ menus, staffs, candidateDates, timeSlots }: BookingFlowProps) {
   // useContext を使って BookingContext の状態 state と dispatch を取得
   const { state, dispatch } = useBooking()
 
   return (
     <div>
-      {state.step === 1 && <div>STEP 1: メニューを選ぶ</div>}
+      {
+        state.step === 1 &&
+        <MenuStep
+          menus={menus}
+          selectedMenuId={state.menuId}
+          onSelect={(menuId) => dispatch({ type: "select-menu", menuId })}
+        />
+      }
       {state.step === 2 && <div>STEP 2: 日付・時間を選ぶ</div>}
       {state.step === 3 && <div>STEP 3: スタッフを選ぶ（任意）</div>}
       {state.step === 4 && <div>STEP 4: 確認して予約する</div>}
