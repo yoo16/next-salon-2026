@@ -11,18 +11,20 @@ import BookingNavigation from "@/components/booking/BookingNavigation"
 
 // Props の型定義
 type BookingFormProps = {
-    shop: Shop
-    menus: Menu[]
-    staffs: Staff[]
+  shop: Shop
+  menus: Menu[]
+  staffs: Staff[]
+  candidateDates: string[]
+  timeSlots: string[]
 }
 
-export default function BookingForm({ shop, menus, staffs }: BookingFormProps) {
-    return (
-        <BookingProvider shopId={shop.id}>
-            {/* ここにかかれたコンポーネントのみが、データを利用できます。 */}
-            <BookingFlow />
-        </BookingProvider>
-    )
+export default function BookingForm({ shop, menus, staffs, candidateDates, timeSlots }: BookingFormProps) {
+  return (
+    <BookingProvider shopId={shop.id}>
+      {/* ここにかかれたコンポーネントのみが、データを利用できます。 */}
+      <BookingFlow />
+    </BookingProvider>
+  )
 }
 
 function BookingFlow() {
