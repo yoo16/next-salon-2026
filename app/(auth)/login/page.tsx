@@ -31,6 +31,14 @@ export default function LoginPage() {
                 title="ログイン"
                 description="Google アカウントでログインします。初めての方は、ログインと同時に登録されます。"
             />
+
+            <div className="mt-8 flex flex-col gap-4 text-sm">
+                {isError && <p className="text-red-600">ログインに失敗しました。もう一度お試しください。</p>}
+
+                <button type="button" onClick={handleClick} disabled={isPending} className={ui.primaryButton}>
+                    {isPending ? "ログイン中..." : "Google でログイン"}
+                </button>
+            </div>
         </div>
     )
 }
