@@ -16,6 +16,10 @@ export default function Header() {
           <Link href="/mypage" className={linkClass}>マイページ</Link>
           <Link href="/admin" className={linkClass}>管理者</Link>
         </nav>
+
+        <div className="ml-auto flex items-center gap-2">
+          <Link href="/login" className={linkClass}>ログイン</Link>
+        </div>
       </div>
     </header>
   )
